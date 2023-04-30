@@ -10,6 +10,7 @@
     justify-content: space-between;
     z-index: 29;
     overflow: hidden;
+    flex-shrink: 0;
 }
 .headerLogo{
     color: white;

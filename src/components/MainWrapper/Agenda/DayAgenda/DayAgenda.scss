@@ -1,0 +1,16 @@
+.hour{
+    text-align: center;
+}
+.hourEvent{
+    text-align: center;
+    border-right: 1px solid rgb(243, 243, 243);
+    border-bottom: 1px solid rgb(243, 243, 243);
+}
+.hourEvent:last-child{
+    border-bottom: none;
+}
+.dayContainer:last-child{
+    .hourEvent{
+        border-right: none;
+    }
+}

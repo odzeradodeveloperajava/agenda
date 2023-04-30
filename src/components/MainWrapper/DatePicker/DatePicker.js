@@ -43,9 +43,11 @@ function DatePicker({ inFocusedView, date, month, iterator, children, isInYearVi
       {check()}
       <button className="datebutton">prev</button>
       <div className='month'>
-        <h1 className={'monthName'+isFocused()}>{getMonthName(iterator)} {inFocusedView ? month[2][0].format('YYYY') : null }</h1>
+        <div className="monthFocusedHeader">
+          <h1 className={'monthName'+isFocused()}>{getMonthName(iterator)} {inFocusedView ? month[2][0].format('YYYY') : null }</h1>
+        </div>
         <div className={'daysOfTheWeek'+isFocused()}>
-          <div>s</div>
+          <div className="sunday">s</div>
           <div>m</div>
           <div>t</div>
           <div>w</div>
@@ -87,7 +89,6 @@ function DatePicker({ inFocusedView, date, month, iterator, children, isInYearVi
           }
       </div>
     </div>
-    <button className="datebutton">next</button>
     </div>
   );
 }

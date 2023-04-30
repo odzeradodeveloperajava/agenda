@@ -1,0 +1,49 @@
+.agendaScreen{
+    display: none;
+}
+.topBar{
+    width: 100%;
+    min-height: 100px;
+    height: 15%;
+}
+.agenda{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+.dayContainer{
+    display: grid;
+    grid-template-rows: repeat(24, 1fr);
+}
+.monthContainer{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin-right: 10px;
+}
+.dayContainer{
+    height: 100%;
+    width: 100%;
+}
+.hoursBar{
+    background-color: white;
+    border: none;
+}
+
+@media (min-width: 1000px){
+    .agendaScreen{
+        height: 100%;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        color: rgb(164, 164, 164);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .contentWrapper{
+        width: 350px;
+    }
+}

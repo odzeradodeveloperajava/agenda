@@ -4,12 +4,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10px !important;
     color: rgb(251, 251, 251);
     font-weight: 400;
-    margin: 1px;
     flex-shrink: 0;
-
+    height: min-content;
+    width: min-content;
 }
 .currentMonth{
     @include everyDay;
@@ -23,14 +22,17 @@
 .everyDay{
     @include everyDay;
 }
-
+.everyDay:first-child{
+    color: rgb(253, 45, 45);
+}
 .today{
     @include everyDay;
     box-sizing: border-box;
-    background-color: crimson;
-    color: white;
-    border-radius: 30px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(31, 31, 31);
     font-weight: 800;
+    border-radius: 2px;
+
 }
 .emptyDay{
     @include everyDay;
@@ -40,14 +42,16 @@
     aspect-ratio: 1;
 }
 
-@media (max-height: 400px){
-    .everyDay today{
-        aspect-ratio: auto;
-        font-size: 6px !important;
+@media (min-width: 300px) and (max-width: 900px){
+    .everyDay, .today{
+        font-size: 2.2vw;
     }
-    .row{
-        overflow: visible;
-        min-width: 10%;
-        min-height: 10%;
+}
+@media (min-width: 1000px){
+    .everyDay, .today{
+        font-size: 10px;
+    }
+    .focused{
+        font-size: 15px !important;
     }
 }

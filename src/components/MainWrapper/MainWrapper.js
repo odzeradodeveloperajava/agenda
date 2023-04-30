@@ -17,6 +17,7 @@ import { connect } from 'react-redux';
 import { sidebarSlide } from 'functions/sidebarControl/sidebarSlide';
 import { setSelectedMonth, toggleFocusedOnDay } from 'redux/reducers';
 import isMobileDevice from 'functions/isMobileDevice/isMobileDevice'
+import AgendaBig from './Agenda/AgendaBig'
 
 const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocusedOnDay, focusedOnDay}) => {
   const cur = dayjs().year()
@@ -109,19 +110,8 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
             </div>
             <div className='agendaScreen'>
               <div className='topBar'></div>
-              <div className='agenda'>
-                <div className='monthContainer'>
-                  <div className='dayContainer hoursBar'></div>
-                  <div className='dayContainer'></div>
-                  <div className='dayContainer'></div>
-                  <div className='dayContainer'></div>
-                  <div className='dayContainer'></div>
-                  <div className='dayContainer'></div>
-                  <div className='dayContainer'></div>
-                  <div className='dayContainer'></div>
-                </div>
+              <AgendaBig />
               </div>
-            </div>
           </div>
       </div>
   )

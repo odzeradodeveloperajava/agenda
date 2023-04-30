@@ -1,5 +1,5 @@
 .calendarWrapper{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     display: grid !important;
     justify-items: center;
     justify-content: center;
@@ -16,31 +16,39 @@
     margin: 30px 0;
     font-size: 25px;
 }
-@media (max-width: 1360px){
+@media (max-width: 360px){
     .calendarWrapper{
-        grid-template-columns: repeat(2, minmax(100px, 200px));
+        grid-template-columns: repeat(2, 1fr);
         height: 80%;
     }
 }
+@media (min-width: 800px){
+    .calendarWrapper{
+        grid-template-columns: repeat(4, 1fr);
+        height: 80%;
+    }
+}
+@media (min-width: 1000px){
+    .calendarWrapper{
+        grid-template-columns: repeat(2, 1fr);
+        height: 80%;
+    }
+}
+
 @media (max-height: 870px){
     .calendarWrapper__year{
         margin: 8px 0;
     }
 }
-@media (max-height: 870px){
-    .calendarWrapper{
-        height: 70%;
-    }
-}
 @media (max-height: 490px){
     .calendarWrapper{
-        grid-template-columns: repeat(4, minmax(100px, 200px));
+        grid-template-columns: repeat(4, 1fr);
         height: 80%;
     }
 }
 @media (max-height: 300px){
     .calendarWrapper{
-        grid-template-columns: repeat(6, minmax(100px, 200px));
+        grid-template-columns: repeat(6, 1fr);
         height: 80%;
     }
 }

@@ -12,7 +12,7 @@ import isMobileDevice from "functions/isMobileDevice/isMobileDevice";
 function DatePicker({ inFocusedView, date, month, iterator, children, isInYearView, setSelectedMonth, focusedOnDay, initialSlide, toggleFocusedOnDay}) {
   const addDateId = (row) =>{
     if(inFocusedView){
-      console.log(month[1][1].format('MM'))
+      //console.log(month[1][1].format('MM'))
       return(row.map((x,i) => x.format('DD-MM-YY')))
     }
   }

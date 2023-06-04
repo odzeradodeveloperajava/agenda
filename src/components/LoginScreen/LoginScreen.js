@@ -11,7 +11,7 @@ const LoginScreen = ({isLoggedIn, errorCode, setErrorCode}) => {
   const navigate = useNavigate();
   useEffect(()=>{
     if(isLoggedIn === true){
-      navigate('/main')
+      navigate('/menu')
     }
   },[isLoggedIn, navigate])
   const [currentAction, setCurrentAction] = useState('Login')

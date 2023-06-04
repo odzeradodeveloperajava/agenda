@@ -11,7 +11,6 @@ const Calendar = ({year, isInYearView}) => {
   const yearArray = [0,1,2,3,4,5,6,7,8,9,10,11]
   return (
     <React.Fragment>
-      <div className='calendarWrapper__year'>{year}</div>
       <div className='calendarWrapper'>
       {yearArray.map((x,i)=>{
           return(

@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import MainWrapper from 'components/MainWrapper/MainWrapper'
 
-const ProtectedRoute = ({isLoggedIn}) => {
-    return (isLoggedIn === true ? <MainWrapper /> : <Navigate to='/' />)
+const ProtectedRoute = ({isLoggedIn, source}) => {
+    return (isLoggedIn === true ? source : <Navigate to='/' />)
 }
 const mapStateToProps = state => {
     return {

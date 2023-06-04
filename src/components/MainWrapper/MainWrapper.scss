@@ -13,10 +13,44 @@
     width: 100%;
     height: calc(100% - 35px);
 }
+.yearCalendar__wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.yearCalendar__header{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 20px;
+}
+.yearCalendar__wrapper--buttons{
+    display: flex;
+    flex-direction: row;
+}
+@mixin yearButton{
+    width: 15px;
+    aspect-ratio: 1;
+    background-position: center;
+    filter: invert(1);
+    background-size: cover;
+    margin: 2px;
+    cursor: pointer;
+}
 
-
-
-
+.yearCalendar__wrapper--buttons--prevYear{
+    @include yearButton;
+    margin-right: 15px;
+    background-image: url(./../../assets/icons/menu/icons8-previous-50.png);
+}
+.yearCalendar__wrapper--buttons--nextYear{
+    @include yearButton;
+    background-image: url(./../../assets/icons/menu/icons8-next-50.png);
+}
 .slider{
     display: flex;
     flex-direction: row;
@@ -30,11 +64,6 @@
     overflow: initial;
     width: 100%;
     position: relative;
-}
-.swiper{
-    /*
-    max-width: 600px;
-    */
 }
 .mainWrapper{
     position: relative;

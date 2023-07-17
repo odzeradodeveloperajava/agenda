@@ -1,6 +1,6 @@
 import React , {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
-import Header from 'components/Header/Header.js'
+import Header from 'components/MainWrapper/Header/Header.js'
 import 'components/MainWrapper/MainWrapper.scss'
 import Calendar from './Calendar/Calendar'
 import { Navigation } from 'swiper';

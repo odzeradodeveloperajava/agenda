@@ -1,5 +1,5 @@
 import React from 'react'
-import 'components/Header/Header.css'
+import './Header.css'
 import logOut from 'functions/authorization/logOut'
 import { sidebarSlide } from 'functions/sidebarControl/sidebarSlide'
 import { useNavigate } from 'react-router-dom'

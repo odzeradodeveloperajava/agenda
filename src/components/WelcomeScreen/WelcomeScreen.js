@@ -7,13 +7,23 @@ const WelcomeScreen = ({isLoggedIn, loginPending}) => {
     const [message, setMessage] = useState('')
     const navigate = useNavigate();
 
+    const [pathToRefresh, setPathToRefresh] = useState('/menu')
+
+    useEffect(()=>{
+      console.log('odpalam welcome screen')
+      const path = localStorage.getItem('pathToRefresh')
+      console.log('odczyt path > uzyty do navigate ',path)
+      const x = () => path !== null || path !== `/`  ? setPathToRefresh(path) : null;
+      x()
+    })
+
     useEffect(()=>{
         setTimeout(() => {
           setMessage('The service is unavailable')
         }, 2000);
 
         if(isLoggedIn === true && loginPending === false){
-          navigate('/main')
+          navigate(pathToRefresh)
         }
         else if(isLoggedIn === false && loginPending === false){
             navigate('/login')

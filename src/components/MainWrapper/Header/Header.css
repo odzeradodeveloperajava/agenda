@@ -20,7 +20,7 @@
     height: 70%;
 }
 .headerMenuButton{
-    background-image: url(../../assets/icons/menu/menutr.png);
+    background-image: url(./../../../assets/icons/menu/menutr.png);
     background-size: cover;
     border: none;
     height: 100%;
@@ -43,7 +43,7 @@
     flex-direction: row;
 }
 .headerSettings{
-    background-image: url(../../assets/icons/menu/circle2.png);
+    background-image: url(./../../../assets/icons/menu/circle2.png);
     background-size: cover;
     border: none;
     height: 100%;

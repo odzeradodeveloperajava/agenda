@@ -4,7 +4,6 @@ import { toggleUserIsLoggedIn, setLoggedUserDetails, togglePending } from "redux
 
 const handler = (res) =>{
     store.dispatch(togglePending(false))
-    console.log(res.data.email);
     store.dispatch(setLoggedUserDetails(res.data.email))
     store.dispatch(toggleUserIsLoggedIn(true))
 }

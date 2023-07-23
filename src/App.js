@@ -16,14 +16,14 @@ const App = () => {
   jwtHandler(localStorage.getItem('jwt'))
 
   const Inner= () =>{
-    let location = useLocation();
+   // let location = useLocation();
 
-    useEffect(()=>{
-      const path = location.pathname === `/` ? '/menu' : location.pathname
-      console.log('jestes na scierzce',location.pathname);
-      localStorage.setItem('pathToRefresh',path)
-
-    },[location])
+   // useEffect(()=>{
+   //   const path = location.pathname === `/` ? '/menu' : location.pathname
+   //   console.log('jestes na scierzce',location.pathname);
+   //   localStorage.setItem('pathToRefresh',path)
+//
+   // },[location])
 
     return(
     <Routes>

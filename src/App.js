@@ -30,6 +30,7 @@ const App = () => {
 //
    // },[location])
 
+   const pathToRefresh = localStorage.getItem('pathToRefresh');
     return(
     <Routes>
     <Route exact path='/' element={<WelcomeScreen />} />
@@ -37,6 +38,8 @@ const App = () => {
     <Route exact path='/menu' element={<ProtectedRoute source={<Menu />}/>} />
     <Route exact path='/main' element={<ProtectedRoute source={<MainWrapper />}/>} />
      {/* Fallback route */}
+     {pathToRefresh && <Route path="*" element={<Navigate to={pathToRefresh} replace />} />}
+     {!pathToRefresh && <Route path="*" element={<ProtectedRoute source={<MainWrapper />} />} />}
     <Route path='*' element={<h1>ERROR 404</h1>} />
     </Routes>
     )

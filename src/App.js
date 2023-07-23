@@ -16,8 +16,13 @@ const App = () => {
   jwtHandler(localStorage.getItem('jwt'))
 
   const Inner= () =>{
-   // let location = useLocation();
 
+   
+   let location = useLocation();
+   useEffect(() => {
+    const path = location.pathname === `/` ? '/menu' : location.pathname;
+    localStorage.setItem('pathToRefresh', path);
+  }, [location]);
    // useEffect(()=>{
    //   const path = location.pathname === `/` ? '/menu' : location.pathname
    //   console.log('jestes na scierzce',location.pathname);
@@ -31,6 +36,7 @@ const App = () => {
     <Route exact path='/login' element={<LoginScreen />} />
     <Route exact path='/menu' element={<ProtectedRoute source={<Menu />}/>} />
     <Route exact path='/main' element={<ProtectedRoute source={<MainWrapper />}/>} />
+     {/* Fallback route */}
     <Route path='*' element={<h1>ERROR 404</h1>} />
     </Routes>
     )

@@ -6,6 +6,7 @@ const handler = (res) =>{
     store.dispatch(togglePending(false))
     store.dispatch(setLoggedUserDetails(res.data.email))
     store.dispatch(toggleUserIsLoggedIn(true))
+    return true
 }
 const jwtHandler = async (token) =>{
     store.dispatch(togglePending(true))
@@ -18,6 +19,7 @@ const jwtHandler = async (token) =>{
     }
     else{
         store.dispatch(togglePending(false))
+        return false
     }
 }
 export default jwtHandler

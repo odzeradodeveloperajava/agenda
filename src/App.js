@@ -1,6 +1,6 @@
 import jwtHandler from 'functions/authorization/jwtHandler';
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import LoginScreen from './components/LoginScreen/LoginScreen';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import WelcomeScreen from './components/WelcomeScreen/WelcomeScreen';
@@ -15,20 +15,14 @@ const App = () => {
 
   jwtHandler(localStorage.getItem('jwt'))
 
-  const Inner= () =>{
 
-   
-   let location = useLocation();
-   useEffect(() => {
-    const path = location.pathname === `/` ? '/menu' : location.pathname;
-    localStorage.setItem('pathToRefresh', path);
-  }, [location]);
-   // useEffect(()=>{
-   //   const path = location.pathname === `/` ? '/menu' : location.pathname
-   //   console.log('jestes na scierzce',location.pathname);
-   //   localStorage.setItem('pathToRefresh',path)
-//
-   // },[location])
+  const Inner= () =>{
+    const location = useLocation()
+   useEffect(()=>{
+   const path = location.pathname === `/` ? '/menu' : location.pathname
+   //console.log('jestes na scierzce',location.pathname);
+   localStorage.setItem('pathToRefresh',path)
+   },[location])
 
    const pathToRefresh = localStorage.getItem('pathToRefresh');
     return(

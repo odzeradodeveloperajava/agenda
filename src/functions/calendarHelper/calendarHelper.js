@@ -36,5 +36,18 @@ export function getYear(month = dayjs().month()){
 }
 export function getCurrDateArr(){
   const currentDate = dayjs()
-  return [currentDate.format('DD-MM-YY') ,currentDate.format('DD'), currentDate.format('MM'), currentDate.format('YY')]
+  return [currentDate.format('DD-MM-YY') ,currentDate.format('DD'), currentDate.format('MM'), currentDate.format('YYYY')]
+}
+
+export function getCustomWeek(date) {
+  const monthArr = getCustomMonth(date[3], date[2]-1);
+  const test = monthArr.map((x)=>x.map((x)=>x.format('DD-MM-YY')))
+  const test2 = test.map((x)=>x.indexOf(date[0]))
+  function findIndex(test2) {
+    return test2.findIndex(element => element !== -1);
+  }
+  const position = findIndex(test2);
+  if (position !== -1) {
+    return(monthArr[position].map( x => [x.format('ddd') + '., ' + x.format('DD'),x.format('DD-MM-YYYY')]));
+  } 
 }

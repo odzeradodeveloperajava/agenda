@@ -6,12 +6,16 @@ import logIn from 'functions/authorization/logIn';
 import createUser from 'functions/authorization/createUser';
 import { setErrorCode } from 'redux/reducers';
 
+
 const LoginScreen = ({isLoggedIn, errorCode, setErrorCode}) => {
 
   const navigate = useNavigate();
+
+
   useEffect(()=>{
     if(isLoggedIn === true){
-      navigate('/menu')
+      console.log('login - odpalony')
+      navigate('/')
     }
   },[isLoggedIn, navigate])
   const [currentAction, setCurrentAction] = useState('Login')

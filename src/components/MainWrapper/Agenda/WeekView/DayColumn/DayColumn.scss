@@ -6,6 +6,9 @@
     border-right: 1px solid rgb(243, 243, 243);
     border-bottom: 1px solid rgb(243, 243, 243);
 }
+.hourEvent:hover{
+    background-color: rgb(229, 228, 228);
+}
 .hourEvent:last-child{
     border-bottom: none;
 }

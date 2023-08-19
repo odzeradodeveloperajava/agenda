@@ -1,0 +1,58 @@
+.daysNames{
+    display: grid;
+    height: 50px;
+    grid-template-columns: repeat(8, 1fr);
+}
+.dayName{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spanToday{
+    color:red;
+}
+.weekContainer{
+    position: relative;
+    height: 100%;
+    overflow: scroll;
+}
+.curTimeLine{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    position: absolute;
+    height: 2px;
+    width: 100%;
+}
+.hourLineTime{
+    text-align: center;
+    color: red;
+    font-size: 10px;
+    height: 12px;
+    top: -6px;
+    position: relative;
+}
+.hourLine{
+    height: 1px;
+    background-color: red;
+}
+.wrapper{
+    height: 120vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin-right: 10px;
+}
+.dayContainer{
+    height: 100%;
+    width: 100%;
+}
+.dayContainer:last-child{
+    margin-right: 30px;
+}
+.hoursBar{
+    background-color: white;
+    border: none;
+    height: 100%;
+    width: 100%;
+}

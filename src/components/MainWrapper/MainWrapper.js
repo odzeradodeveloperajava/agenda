@@ -39,7 +39,7 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
   useEffect(()=>{
     setPrevYearBtn(document.getElementById('yearPicker').getElementsByClassName('swiper-button-prev'));
     setNextYearBtn(document.getElementById('yearPicker').getElementsByClassName('swiper-button-next'));
-    console.log(isMobileDevice())
+    //console.log(isMobileDevice())
   })
 
   function getPrevNextMonth(year, month) {
@@ -135,7 +135,6 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
 
 
             <div className='agendaScreen'>
-              <div className='topBar'></div>
               <AgendaBig />
               </div>
           </div>

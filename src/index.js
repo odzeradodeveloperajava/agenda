@@ -6,10 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 import { Provider } from 'react-redux';
 import isServerUp from 'functions/isServerUp/isServerUp';
-import { setAppHeight } from 'redux/reducers';
-
-
-
+import timeupdate from 'functions/timeUpdate/timeupdate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +18,7 @@ root.render(
 );
 //check if backend server is responding
 isServerUp()
-
+timeupdate()
 
 
 

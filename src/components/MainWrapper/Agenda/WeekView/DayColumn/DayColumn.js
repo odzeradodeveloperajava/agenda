@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import './DayColumn.scss'
 
-const DayAgenda = ({displayHours}) => {
+const DayAgenda = ({displayHours, day}) => {
     const hoursArr = new Array(24).fill(null).map((x,i)=> x = i+':00')
+
+
 
 
     if(displayHours){
@@ -11,7 +13,7 @@ const DayAgenda = ({displayHours}) => {
         )
     } else {
         return (
-        hoursArr.map(x => <div className='hourEvent' key={x}></div>)
+        hoursArr.map(x => <div className='hourEvent' key={x} onClick={()=>console.log([x,day])} ></div>)
         )
     }
 }

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import dayjs from 'dayjs'
 
 export const socialFun = createSlice({
   name: 'socialFun',
@@ -14,6 +15,7 @@ export const socialFun = createSlice({
     selectedMonth: [2023, 1],
     focusedOnDay: false,
     initialSlide: 0,
+    todayDate: dayjs().format('DD-MM-YYYY'),
   },
   reducers: {
     addCat: (state, action) => {
@@ -49,9 +51,12 @@ export const socialFun = createSlice({
     setInitialSlide: (state, action) => {
       state.initialSlide = action.payload
     },
+    setTodayDate: (state, action) => {
+      state.todayDate = action.payload
+    },
   },
 })
 
-export const { addCat, toggleUserIsLoggedIn, setLoggedUserDetails, setErrorCode, togglePending, toggleServerUp, setSidebarOpen, setSelectedMonth, toggleFocusedOnDay, setInitialSlide } = socialFun.actions
+export const { addCat, toggleUserIsLoggedIn, setLoggedUserDetails, setErrorCode, togglePending, toggleServerUp, setSidebarOpen, setSelectedMonth, toggleFocusedOnDay, setInitialSlide, setTodayDate } = socialFun.actions
 
 export default socialFun.reducer

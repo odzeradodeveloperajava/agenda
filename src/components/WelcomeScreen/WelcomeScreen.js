@@ -8,12 +8,6 @@ const WelcomeScreen = ({isLoggedIn, loginPending}) => {
     const navigate = useNavigate();
     const pathname = localStorage.getItem('pathToRefresh');
     const pathTo = pathname === `/` ? '/menu' : pathname
-    useEffect(()=>{
-      //console.log('odpalam welcome screen i odczytuje pathname', pathname)
-      //const path = localStorage.getItem('pathToRefresh')
-      //console.log('odczyt path > uzyty do navigate ',path)
-      
-    })
 
     useEffect(()=>{
         setTimeout(() => {
@@ -26,7 +20,7 @@ const WelcomeScreen = ({isLoggedIn, loginPending}) => {
         else if(isLoggedIn === false && loginPending === false){
             navigate('/login')
         }
-      },[isLoggedIn, loginPending, navigate])
+      },[isLoggedIn, loginPending, navigate, pathTo])
 
 
   return (

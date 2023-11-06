@@ -11,12 +11,12 @@ const today = new Date()
 const isToday = (date) => date === dayjs().format('DD-MM-YYYY') ? true : '';
 
 useEffect(()=>{
-    console.log('xxxx',localStorage)
     const currentTime = (today.getHours()*60+today.getMinutes())/1440
     setDays(getCustomWeek(getCurrDateArr()))
     const onResize = (x) => setHourLine(x[0].contentRect.height*currentTime)
     const resizeObserver = new ResizeObserver(onResize);
     resizeObserver.observe(document.querySelector("#dupa"));
+    console.log((getCustomWeek(getCurrDateArr())))
 },[])
 
   return (
@@ -34,7 +34,7 @@ useEffect(()=>{
             </div>
                     <div className='wrapper'>
                         <div className='hoursBar' id='dupa'><DayColumn displayHours={true}/></div>
-                        {days.map((x)=><div className='dayContainer' key={x}><DayColumn displayHours={false} key={x[1]} day={x[1]}/></div>)}
+                        {days.map((x)=><div className='dayContainer' key={x}><DayColumn displayHours={false} key={x[1]} day={x}/></div>)}
                         
                     </div>
             </div>

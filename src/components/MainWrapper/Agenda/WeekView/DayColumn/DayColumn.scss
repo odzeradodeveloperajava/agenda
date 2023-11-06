@@ -1,14 +1,19 @@
+.wrapperX{
+    position: relative;
+}
 .hour{
     text-align: center;
 }
 .hourEvent{
+    height: 100%;
     cursor: pointer;
     text-align: center;
     border-right: 1px solid rgb(243, 243, 243);
     border-bottom: 1px solid rgb(243, 243, 243);
+    box-sizing: initial;
 }
 .hourEvent:hover{
-    background-color: rgb(229, 228, 228);
+    background-color: rgba(0, 0, 0, 0.226);
 }
 .hourEvent:last-child{
     border-bottom: none;
@@ -17,4 +22,35 @@
     .hourEvent{
         border-right: none;
     }
+}
+.dayEvents{
+    height: 100%;
+    position: relative;
+    z-index: 1
+    ;
+}
+.eventsCells{
+    height: calc(100% - 1px);
+}
+.addedEventsWrapper{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+.relativeWrapper{
+    height: 100%;
+    position: relative;
+}
+
+.example{
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    width: calc(100% - 2px);
+    box-sizing: border-box;
+    background-color: rgba(7, 155, 229,);
+    border-radius: 2px;
+    z-index: 100;
+    padding: 5px;
 }

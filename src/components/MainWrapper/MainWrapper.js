@@ -28,19 +28,30 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
   const [prevYearBtn, setPrevYearBtn] = useState(null);
   const [nextYearBtn, setNextYearBtn] = useState(null);
 
-
-
   useEffect(()=>{
     handleChangeMonth()
   },[selectedMonth])
 
 
-  //temp -- check if device is mobile device
   useEffect(()=>{
     setPrevYearBtn(document.getElementById('yearPicker').getElementsByClassName('swiper-button-prev'));
     setNextYearBtn(document.getElementById('yearPicker').getElementsByClassName('swiper-button-next'));
-    //console.log(isMobileDevice())
+    resizeObserver.observe(document.querySelector('#mainWrapper'));
+    console.log('bla')
   })
+
+  const resizeObserver = new ResizeObserver((entries) => {
+    if (entries.length > 0) {
+      console.log(entries[0])
+      // Sprawdź, czy zmiana dotyczy szerokości.
+      if (entries[0].contentRect.width !== entries[0].target.previousOffsetWidth) {
+        // Wykonaj funkcję changeWidth().
+        console.log(entries[0].contentRect.width, 'px');
+      }
+    }    
+  });
+
+
 
   function getPrevNextMonth(year, month) {
     const prevMonth = month === 0 ? [year - 1, 11] : [year, month - 1];
@@ -84,7 +95,7 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
   }
 
   return (
-    <div className='mainWrapper'>
+    <div className='mainWrapper' id='mainWrapper'>
         <Sidebar />
         {isSidebarOpen && <div className='contentOverlay' onClick={sidebarSlide} />}
         <Header />

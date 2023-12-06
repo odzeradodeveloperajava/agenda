@@ -1,6 +1,7 @@
 const storedEvents = JSON.parse(localStorage.getItem('calendar')) || [];
 
 export const saveEvent = (date, hour, durationInMinutes, name) =>{
+  
   console.log('zapis eventu')
   console.log(date, hour, durationInMinutes, name)
   console.log('godzina to"',hour,'"' , hour < 0 || hour > 24 , durationInMinutes > (24 - hour))
@@ -40,7 +41,7 @@ export const findEventIndicesByDate = (date)=> {
 export const logEventsByIndexes = (indexes) =>{
     const events = []
     indexes.map((x)=> events.push(storedEvents[x]))
-    console.log('eventy',events[0])
+    //console.log('eventy',events)
     return events
 }
 

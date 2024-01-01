@@ -8,9 +8,6 @@ import MainWrapper from 'components/MainWrapper/MainWrapper';
 import Menu from 'components/Menu/Menu';
 import { useLocation } from 'react-router-dom';
 
-
-
-
 const App = () => {
 
   jwtHandler(localStorage.getItem('jwt'))
@@ -19,16 +16,18 @@ const App = () => {
   const Inner= () =>{
     const location = useLocation()
    useEffect(()=>{
-   const path = location.pathname === `/` ? '/menu' : location.pathname
+   //const path = location.pathname === `/` ? '/menu' : location.pathname
    //console.log('jestes na scierzce',location.pathname);
-   localStorage.setItem('pathToRefresh',path)
+   //localStorage.setItem('pathToRefresh',path)
+   const path = location.pathname;
+   localStorage.setItem('pathToRefresh', path);
    },[location])
 
    const pathToRefresh = localStorage.getItem('pathToRefresh');
     return(
     <Routes>
     <Route exact path='/' element={<WelcomeScreen />} />
-    <Route exact path='/login' element={<LoginScreen />} />
+    <Route exact path='/login' element={<LoginScreen />} redirectTo="/menu"/>
     <Route exact path='/menu' element={<ProtectedRoute source={<Menu />}/>} />
     <Route exact path='/main' element={<ProtectedRoute source={<MainWrapper />}/>} />
      {/* Fallback route */}

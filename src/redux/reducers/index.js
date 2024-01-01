@@ -5,7 +5,7 @@ export const socialFun = createSlice({
   name: 'socialFun',
   initialState: {
     cats: [],
-    isLoggedIn: false,
+    isLoggedIn: null,
     userDetails: '',
     userName: '',
     errorCode: '',

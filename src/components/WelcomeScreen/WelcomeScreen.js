@@ -1,38 +1,48 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import './WelcomeScreen.css';
 
-const WelcomeScreen = ({isLoggedIn, loginPending}) => {
+const WelcomeScreen = ({ isLoggedIn, loginPending }) => {
+  const [message, setMessage] = useState('');
+  const [pathTo, setPathTo] = useState('/');
+  const navigate = useNavigate();
 
-    const [message, setMessage] = useState('')
-    const navigate = useNavigate();
+  // Efekt dla aktualizacji ścieżki
+  useEffect(() => {
     const pathname = localStorage.getItem('pathToRefresh');
-    const pathTo = pathname === `/` ? '/menu' : pathname
 
-    useEffect(()=>{
-        setTimeout(() => {
-          setMessage('The service is unavailable')
-        }, 2000);
+    if (pathname && pathname !== pathTo) {
+      setPathTo(pathname);
+    }
+  }, [pathTo]);
 
-        if(isLoggedIn === true && loginPending === false){
-          navigate(pathTo)
-        }
-        else if(isLoggedIn === false && loginPending === false){
-            navigate('/login')
-        }
-      },[isLoggedIn, loginPending, navigate, pathTo])
-
+  // Efekt dla nawigacji
+  useEffect(() => {
+    // Sprawdź warunki logiki nawigacji
+    if (isLoggedIn === true && loginPending === false) {
+      // Zmiana nawigacji na /menu, ale tylko jeśli aktualna ścieżka to /
+      if (pathTo === '/') {
+        navigate('/menu');
+      }
+    } else if (isLoggedIn === false && loginPending === false) {
+      navigate('/login');
+    }
+  }, [isLoggedIn, loginPending, navigate, pathTo]);
 
   return (
-    <h1>{message}</h1>
-  )
-}
+    <>
+      <h1>{message}</h1>
+      <h1>{pathTo}</h1>
+    </>
+  );
+};
 
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.socialFun.isLoggedIn,
+    loginPending: state.socialFun.loginPending,
+  };
+};
 
-const mapStateToProps = state => {
-    return {
-        isLoggedIn: state.socialFun.isLoggedIn,
-        loginPending: state.socialFun.loginPending
-    }
-  }
-export default connect(mapStateToProps)(WelcomeScreen)
+export default connect(mapStateToProps)(WelcomeScreen);

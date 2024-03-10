@@ -33,7 +33,8 @@ const WelcomeScreen = ({ isLoggedIn, loginPending }) => {
   return (
     <>
       <h1>{message}</h1>
-      <h1>{pathTo}</h1>
+      <h1>{pathTo.toString()}</h1>
+	  <h2>{isLoggedIn.toString(), loginPending.toString()}</h2>
     </>
   );
 };

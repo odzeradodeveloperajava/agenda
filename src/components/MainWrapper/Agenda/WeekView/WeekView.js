@@ -16,7 +16,7 @@ useEffect(()=>{
     const onResize = (x) => setHourLine(x[0].contentRect.height*currentTime)
     const resizeObserver = new ResizeObserver(onResize);
     resizeObserver.observe(document.querySelector("#dupa"));
-    console.log((getCustomWeek(getCurrDateArr())))
+    //console.log((getCustomWeek(getCurrDateArr())))
 },[])
 
   return (

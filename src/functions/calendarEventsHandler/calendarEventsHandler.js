@@ -33,7 +33,7 @@ export const findEventIndicesByDate = (date)=> {
       if (event.date[0].toString() === date) {
         indices.push(index);
       }
-      console.log('tutaj znajduje eventy dla daty: ', date, 'eventy to : ', indices[0])
+      //console.log('tutaj znajduje eventy dla daty: ', date, 'eventy to : ', indices[0])
       return indices;
     }, []);
   }

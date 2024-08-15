@@ -10,7 +10,7 @@ import './swiperStyle.scss'
 import 'swiper/css/navigation';
 import dayjs from 'dayjs'
 import DatePicker from './DatePicker/DatePicker';
-import { getCustomMonth } from 'functions/calendarHelper/calendarHelper';
+import { getCurrDateArr, getCustomMonth } from 'functions/calendarHelper/calendarHelper';
 import Day from './DatePicker/Day';
 import Sidebar from './Sidebar/Sidebar';
 import { connect } from 'react-redux';
@@ -22,31 +22,38 @@ import AgendaBig from './Agenda/AgendaBig'
 const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocusedOnDay, focusedOnDay}) => {
   const cur = dayjs().year()
   const [years, setYears] = useState([cur-1, cur, cur+1])
-  const [months, setMonths] = useState([selectedMonth,selectedMonth,selectedMonth])
-  const [activeIndex, setActiveIndex] = useState(1)
+  const [months, setMonths] = useState([ getPrevNextMonth(selectedMonth,...selectedMonth)[1], getPrevNextMonth(...selectedMonth)[0]])
+  const [activeIndex, setActiveIndex] = useState(0)
   const [currentDisplayYear, setCurrentDisplayYear] = useState(cur)
   const [prevYearBtn, setPrevYearBtn] = useState(null);
   const [nextYearBtn, setNextYearBtn] = useState(null);
 
   useEffect(()=>{
+    console.log('odpalam sie')
     handleChangeMonth()
   },[selectedMonth])
 
+  useEffect(()=>{
+    console.log('update miesiecy ',months)
+  },[months])
 
   useEffect(()=>{
     setPrevYearBtn(document.getElementById('yearPicker').getElementsByClassName('swiper-button-prev'));
     setNextYearBtn(document.getElementById('yearPicker').getElementsByClassName('swiper-button-next'));
     resizeObserver.observe(document.querySelector('#mainWrapper'));
-    console.log('bla')
-  })
+    })
+  
+  useEffect(()=>{
+    //console.log(cur, years, months, activeIndex, currentDisplayYear)
+  },[cur, years, months, activeIndex, currentDisplayYear])
 
   const resizeObserver = new ResizeObserver((entries) => {
     if (entries.length > 0) {
-      console.log(entries[0])
+      //console.log(entries[0])
       // Sprawdź, czy zmiana dotyczy szerokości.
       if (entries[0].contentRect.width !== entries[0].target.previousOffsetWidth) {
         // Wykonaj funkcję changeWidth().
-        console.log(entries[0].contentRect.width, 'px');
+        //console.log(entries[0].contentRect.width, 'px');
       }
     }    
   });
@@ -60,6 +67,7 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
   }
   
   function handleChangeMonth(e) {
+    console.log('event slidera ',e, selectedMonth)
     const [year, month] = selectedMonth;
     const [selectPrevMonth, selectNextMonth] = getPrevNextMonth(year, month);
     const monthsToSet = e == null
@@ -77,7 +85,7 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
             [nextFocusedMonth, prevFocusedMonth, selectedMonthFocused]
           ][e.realIndex];
         })();
-  
+    console.log('ustawiam ',monthsToSet)
     setMonths(monthsToSet);
     toggleFocusedOnDay(false)
   }
@@ -100,19 +108,25 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
         {isSidebarOpen && <div className='contentOverlay' onClick={sidebarSlide} />}
         <Header />
           <div className='mainScreen'>
+
+
+
+
+
+            
             <div className='contentWrapper'>
               <div className='contentWrapper--background'/>
               <div className='slider' ref={null}>
                 <div className="innerSlider">
                 
                 
-                <div id='focusedMonth' className='focusedMonth'>
+                <div id='focusedMonth' className='focusedMonth focusedMonthVisible'>
                 <Swiper
                   id={'monthPicker'}
                   loop={true} 
                   navigation={isMobileDevice()} 
                   direction={'horizontal'} 
-                  initialSlide={1} 
+                  initialSlide={0} 
                   modules={[Navigation]} 
                   onSlideChange={(e)=>handleChangeMonth(e)}>
                     {months.map((x,i)=> <SwiperSlide key={i+'x'}><DatePicker inFocusedView={true} date={months[i]} month={getCustomMonth(months[i][0], months[i][1])} iterator={months[i][1]} children={<Day />}/></SwiperSlide>)}
@@ -138,6 +152,9 @@ const MainWrapper = ({isSidebarOpen, selectedMonth, setSelectedMonth, toggleFocu
                     {years.map((x,i) => <SwiperSlide key={i}><Calendar key={i} year={years[i]} isInYearView={true} /></SwiperSlide>)}
                   </Swiper>
                 </div>
+
+
+
                 </div>
               </div>
             </div>

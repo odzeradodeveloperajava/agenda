@@ -23,8 +23,9 @@
 
 // next and prev arrows in focused on month mode
 #monthPicker > .swiper-button-prev, #monthPicker > .swiper-button-next{
-    color: rgb(255, 255, 255);
-    top: 19px;
+    color: rgb(60, 64, 67);
+    top: 9px;
+    transform: scale(0.8);
   }
 
 //mobile mode

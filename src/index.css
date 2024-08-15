@@ -20,8 +20,7 @@ body::-webkit-scrollbar {
   overflow: auto;
 
 }
-
-html{
+.dark_mode{
   background-color: rgb(36, 36, 36);
 }
 

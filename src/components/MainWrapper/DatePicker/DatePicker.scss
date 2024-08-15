@@ -16,17 +16,15 @@
     justify-content: center;
 }
 .monthName , .monthNameFocused{
-    color:rgb(255, 255, 255);
+    color:rgb(60, 64, 67);
     font-family: 'Pacifico', cursive;
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 500;
     margin: 5px;
 }
 
-.monthNameFocused{
-    font-size: 30px;
-}
 .daysOfTheWeek{
     margin-bottom: 5px;
 }
@@ -58,9 +56,10 @@
     overflow: visible;
     transition: all 0.3 ease-out;
     min-width: 10%;
-    min-height: 10%;
+    min-height: 30px;
     opacity: 1;
     justify-items: center;
+    align-items: center;
 }
 
 .rowHidden{

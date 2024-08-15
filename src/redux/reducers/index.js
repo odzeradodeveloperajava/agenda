@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import dayjs from 'dayjs'
+import { getCurrDateArr } from 'functions/calendarHelper/calendarHelper'
+
+const currDate = getCurrDateArr()
 
 export const socialFun = createSlice({
   name: 'socialFun',
@@ -12,7 +15,7 @@ export const socialFun = createSlice({
     loginPending: false,
     isServerUp: false,
     isSidebarOpen: false,
-    selectedMonth: [2023, 1],
+    selectedMonth: [+currDate[3],+currDate[2]],
     focusedOnDay: false,
     initialSlide: 0,
     todayDate: dayjs().format('DD-MM-YYYY'),
